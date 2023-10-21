@@ -1,4 +1,4 @@
-package com.socialmedia.SocialMediaAPI;
+package com.socialmedia.SocialMediaAPI.config;
 
 import org.springframework.context.annotation.Bean;
 

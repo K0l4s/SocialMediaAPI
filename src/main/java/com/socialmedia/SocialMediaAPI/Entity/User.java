@@ -1,10 +1,15 @@
 package com.socialmedia.SocialMediaAPI.Entity;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 @Entity
@@ -20,7 +25,7 @@ public class User {
     private Integer gender;
     private Date dob;
     private String avatarURL;
-
+    
     @Column(nullable = false)
     private String firstName;
     private String lastName;
@@ -83,7 +88,7 @@ public class User {
 	public void setAvatarURL(String avatarURL) {
 		this.avatarURL = avatarURL;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}

@@ -1,5 +1,7 @@
 package com.socialmedia.SocialMediaAPI.Service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,10 @@ public class UserService {
 	
 	public User displayUserMetaData(String userID) {
 		return userRepo.findByUserID(userID);
+	}
+	
+	public ArrayList<User> findAllUser()
+	{
+		return userRepo.findAll();
 	}
 }

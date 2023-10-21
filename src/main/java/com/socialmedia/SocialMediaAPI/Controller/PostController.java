@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.socialmedia.SocialMediaAPI.Entity.Post;
@@ -39,5 +40,10 @@ public class PostController {
 	@PostMapping("/saves")
 	private Post submitPost(@RequestBody Post post) {
 		return postService.submitPost(post);
+	}
+	
+	@GetMapping("/findAllPhoto")
+	private ArrayList<Post> findAllPhotoPost(){
+		return postService.findAllPhotoPost();
 	}
 }

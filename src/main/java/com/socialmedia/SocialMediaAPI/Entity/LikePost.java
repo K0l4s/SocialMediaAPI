@@ -9,13 +9,15 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="like_post", uniqueConstraints = {@UniqueConstraint(columnNames = "likePostID")})
+@Table(name="likePost", uniqueConstraints = {
+		@UniqueConstraint(columnNames = "likePostID")
+})
 public class LikePost {
 	@Id
 	@GeneratedValue
 	private Long likePostID;
 	
-	@ManyToOne
+	@ManyToOne  
 	@JoinColumn(name="postID")
 	private Post post;
 	
@@ -28,9 +30,8 @@ public class LikePost {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LikePost(Long likePostID, Post post, User user) {
+	public LikePost( Post post, User user) {
 		super();
-		this.likePostID = likePostID;
 		this.post = post;
 		this.user = user;
 	}
@@ -58,6 +59,6 @@ public class LikePost {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	
 }
