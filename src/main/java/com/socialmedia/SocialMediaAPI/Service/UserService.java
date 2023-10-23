@@ -26,4 +26,7 @@ public class UserService {
 	{
 		return userRepo.findAll();
 	}
+	public ArrayList<User> findUserByKeyWord(String keyWord){
+		return userRepo.findUserByKeyWord(keyWord);
+	}
 }
