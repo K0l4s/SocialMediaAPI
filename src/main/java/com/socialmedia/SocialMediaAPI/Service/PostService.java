@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.socialmedia.SocialMediaAPI.Entity.LikePost;
@@ -62,8 +64,28 @@ public class PostService {
 			return false;
 		}
 	}
-	
-	public ArrayList<Post> findAllPhotoPost(){
+
+	public ArrayList<Post> findAllPhotoPost() {
 		return postRepo.findPostImageURLNotNull();
+	}
+
+	public ArrayList<Post> findAllPhotoPostByUserID(String userID) {
+		return postRepo.findPostImageURLNotNullUser(userID);
+	}
+
+	public ArrayList<Post> getRecommendedPosts(int start, int pageSize) {
+
+		PageRequest pageRequest = PageRequest.of(start, pageSize);
+
+		ArrayList<Post> recommendedPosts = postRepo.findRecommendedPosts(pageRequest);
+		return recommendedPosts;
+	}
+
+	public ArrayList<Post> getRecommendedPostsByUser(int start, int pageSize,String userID) {
+
+		PageRequest pageRequest = PageRequest.of(start, pageSize);
+
+		ArrayList<Post> recommendedPosts = postRepo.findRecommendedPostsByUser(pageRequest,userID);
+		return recommendedPosts;
 	}
 }

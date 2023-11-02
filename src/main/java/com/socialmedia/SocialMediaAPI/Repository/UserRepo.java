@@ -17,6 +17,7 @@ public interface UserRepo extends JpaRepository<User, String>{
 	User findByUserID(String userID);
 	ArrayList<User> findAll();
 	
-	@Query("SELECT u FROM User u WHERE u.firstName LIKE %:keyword% OR u.lastName LIKE %:keyword% OR u.address LIKE %:keyword%")
+	@Query("SELECT u FROM User u WHERE u.firstName LIKE %:keyword% OR u.lastName LIKE %:keyword% OR u.address LIKE %:keyword% OR u.userName LIKE %:keyword%")
 	ArrayList<User> findUserByKeyWord(String keyword);
+	
 }

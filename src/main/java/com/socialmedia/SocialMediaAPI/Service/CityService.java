@@ -18,4 +18,9 @@ public class CityService {
 	{
 		return cityRepo.findAll();	 
 	}
+	
+	public City addCity(City city)
+	{
+		return cityRepo.save(city);	 
+	}
 }

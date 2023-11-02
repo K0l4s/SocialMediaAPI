@@ -2,6 +2,7 @@ package com.socialmedia.SocialMediaAPI.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,8 +11,8 @@ import jakarta.persistence.Table;
 public class City {
 	
 	@Id
-	@GeneratedValue
-	private Long cityID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long cityID = (long) 64;
 	
 	private String cityName;
 	private String cityMapURL;

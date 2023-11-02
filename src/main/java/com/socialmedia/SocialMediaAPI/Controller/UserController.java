@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.socialmedia.SocialMediaAPI.Entity.User;
 import com.socialmedia.SocialMediaAPI.Service.UserService;
 
+import jakarta.persistence.PostUpdate;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -40,5 +42,9 @@ public class UserController {
 	private ArrayList<User> searchUserByKey(@RequestParam String keyWord) {
 		return userService.findUserByKeyWord(keyWord);
 	}
-
+	
+	@PostMapping("/update")
+	private User updateUser(@RequestBody User user) {
+		return userService.updateUser(user);
+	}
 }

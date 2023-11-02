@@ -11,4 +11,6 @@ import com.socialmedia.SocialMediaAPI.Entity.City;
 @Repository
 public interface CityRepo extends JpaRepository<City, Long>{
 	ArrayList<City> findAll();
+	
+	City save(City city);
 }

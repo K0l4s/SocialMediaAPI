@@ -46,4 +46,25 @@ public class PostController {
 	private ArrayList<Post> findAllPhotoPost(){
 		return postService.findAllPhotoPost();
 	}
+	
+	@GetMapping("/findAllPhotoByUserID")
+	private ArrayList<Post> findAllPhotoPostByUserID(@RequestParam String userID){
+		return postService.findAllPhotoPostByUserID(userID);
+	}
+	
+	@GetMapping("/recommnedPost")
+	private ArrayList<Long> getRecommendPosts(@RequestParam int start,@RequestParam int pageSize) {
+		ArrayList<Long> listPostID = new ArrayList<Long>();
+		for(Post item : postService.getRecommendedPosts(start, pageSize))
+			listPostID.add(item.getPostID());
+		return listPostID;
+	}
+	
+	@GetMapping("/recommnedPostByUser")
+	private ArrayList<Long> getRecommendPostsByUsers(@RequestParam int start,@RequestParam int pageSize,@RequestParam String userID) {
+		ArrayList<Long> listPostID = new ArrayList<Long>();
+		for(Post item : postService.getRecommendedPostsByUser(start, pageSize, userID))
+			listPostID.add(item.getPostID());
+		return listPostID;
+	}
 }

@@ -29,4 +29,21 @@ public class UserService {
 	public ArrayList<User> findUserByKeyWord(String keyWord){
 		return userRepo.findUserByKeyWord(keyWord);
 	}
+	public User updateUser(User updatedUser) {
+        User existingUser = userRepo.findById(updatedUser.getUserID()).orElse(null);
+        
+        if (existingUser != null) {
+            existingUser.setUserName(updatedUser.getUserName());
+            existingUser.setAddress(updatedUser.getAddress());
+            existingUser.setAvatarURL(updatedUser.getAvatarURL());
+            existingUser.setDob(updatedUser.getDob());
+            existingUser.setFirstName(updatedUser.getFirstName());
+            existingUser.setGender(updatedUser.getGender());
+            existingUser.setLastName(updatedUser.getLastName());
+            
+            return userRepo.save(existingUser);
+        } else {
+            return null;
+        }
+    }
 }

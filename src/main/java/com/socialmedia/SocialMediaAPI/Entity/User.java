@@ -1,6 +1,8 @@
 package com.socialmedia.SocialMediaAPI.Entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,8 +24,8 @@ public class User {
     private String userID;
 
     private String address;
-    private Integer gender;
-    private Date dob;
+    private String gender;
+    private LocalDate dob;
     private String avatarURL;
     
     @Column(nullable = false)
@@ -36,7 +38,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String userID, String address, Integer gender, Date dob, String avatarURL,
+	public User(String userID, String address, String gender, LocalDate dob, String avatarURL,
 			String firstName, String lastName, String userName) {
 		super();
 		this.userID = userID;
@@ -65,19 +67,19 @@ public class User {
 		this.address = address;
 	}
 
-	public Integer getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(Integer gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 
